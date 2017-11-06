@@ -1,0 +1,11 @@
+<h1>Here's all our Restaurants</h1>
+<% today = Time.now.strftime("%A %B %e %Y") %>
+<p>Today is <%= today %></p>
+<h2>You searched for <%= @food_type %> Restaurants</h2>
+<ul>
+  <% @restaurants.each do |restaurant| %>
+    <li><p>
+      <%= "#{restaurant[:name]} | #{restaurant[:address]} - Food: #{restaurant[:food_type]}" %>
+    </p></li>
+  <% end %>
+</ul>

@@ -1,0 +1,30 @@
+<h1>Welcome to our Restaurant App</h1>
+
+<% food_types = %w(Burgers Asian New\ Nordic Italian) %>
+
+<h3>Here are the food types available:</h3>
+<ol>
+  <% food_types.each do |food_type| %>
+    <li>
+      <p>
+        <%= food_type %>
+      </p>
+    </li>
+  <% end %>
+</ol>
+
+<%= link_to 'About us', about_path %>
+
+<h4>What type of food do you want?</h4>
+<form action="/restaurants" method="get">
+  <input type="text" name="restaurant_name" placeholder="Type in a restaurant name">
+  <input type="submit">
+</form>
+
+<h4>Add a restaurant</h4>
+<form action="/restaurants" method="post">
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+  <input type="text" name="name">
+  <input type="text" name="address">
+  <input type="submit">
+</form>
